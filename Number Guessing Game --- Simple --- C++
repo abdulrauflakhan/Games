@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main(){
+   srand(time(NULL));
+  int num=(rand()%9)+1;
+  int guess;
+  int tries=1;
+
+  cout<<"**********  Number Guessing Game **********\nNote: A number has been generated try to guess!\n";
+  
+  do{
+   cout<<"Tries: "<<tries<<"\n";
+   cout<<"Guess number 1-9: ";
+   cin >>guess;
+  if(num==guess){
+   cout<<"Congratulations! You Won!\n";
+
+   
+  }
+  else{
+   cout<<"Oops!-----Try Again-----\n";
+  }
+  tries++;
+  }while(num!=guess);
+  
+return 0;
+}
