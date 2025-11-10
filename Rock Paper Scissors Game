@@ -1,0 +1,81 @@
+#include <iostream>
+#include <ctime>
+
+char player_choice();
+char com_choice();
+void choose_winner(char player,char computer);
+void return_choice(char player,char computer);
+
+
+
+int main(){
+    char player,computer;
+    srand(time(NULL));
+    //void choice,winner;
+    player=player_choice();
+    computer=com_choice();
+    return_choice(player,computer);
+    choose_winner(player,computer);
+
+}
+
+char com_choice(){
+    
+    int num= (rand()%3)+1;
+    char computer;
+
+    switch(num){
+        case 1:
+        computer='r';
+        break;
+        case 2:
+        computer='p';
+        break;
+        case 3:
+        computer='s';
+        break;
+        
+    }
+    return computer;
+}
+
+char player_choice(){
+    char player;
+
+    do{
+        std::cout<<"Rock Paper Scissors Game!\n";
+        std::cout<<"Select your choice\n";
+        std::cout<<"************************\n";
+        std::cout<<"'r' for Rock\n'p' for Paper\n's' for Scissors\nEnter: ";
+        std::cin>>player;    
+
+        //std::cout<<"You chose "<<player<<'\n';
+
+    }while(player!='r'&& player!='p'&& player!='s');
+    
+    
+    return player;
+
+}
+
+void choose_winner(char player,char computer){
+    
+   if (player == computer) {
+        std::cout << "It's a tie!\n";
+    }
+    else if ((player == 'r' && computer == 's') ||
+             (player == 'p' && computer == 'r') ||
+             (player == 's' && computer == 'p')) {
+       std:: cout << "You win!\n";
+    }
+    else {
+       std:: cout << "You loss!\n";
+    }
+}
+void return_choice(char player,char computer){
+    
+    std::cout<<"Your choise: "<<player<<'\n';
+    std::cout<<"Computer's choice: "<<computer<<'\n';
+    
+}
+
